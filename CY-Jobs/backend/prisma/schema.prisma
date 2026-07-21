@@ -1,0 +1,158 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  githubUsername String?   @unique
+  passwordHash String?
+  role         Role     @default(CANDIDATE)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  resumes      Resume[]
+  skills       UserSkill[]
+  matches      JobMatch[]
+  savedJobs    SavedJob[]
+  applications Application[]
+}
+
+enum Role {
+  CANDIDATE
+  EMPLOYER
+  ADMIN
+}
+
+model Resume {
+  id         String   @id @default(uuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id])
+  s3Key      String
+  fileName   String
+  parsedData Json?    // Stores the enriched JSON from AI extraction
+  status     ResumeStatus @default(PENDING)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+enum ResumeStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+model Job {
+  id          String   @id @default(uuid())
+  externalId  String
+  source      String   // e.g., 'Adzuna', 'Jooble', 'Remotive', 'Greenhouse', 'Lever', 'Manual'
+  title       String
+  company     String
+  location    String?
+  description String
+  applyUrl    String?
+  metadata    Json?    // Raw original data
+  postedAt    DateTime?
+  // Enhanced job fields for better filtering and search
+  salaryMin   Float?   // Minimum salary (if provided)
+  salaryMax   Float?   // Maximum salary (if provided)
+  currency    String?  // Currency code (USD, EUR, GBP, INR, etc.)
+  employmentType String? // FULL_TIME, PART_TIME, CONTRACT, INTERN, TEMPORARY, etc.
+  remote      Boolean? // true if fully remote
+  experienceLevel String? // ENTRY, MID, SENIOR, EXECUTIVE
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  skills       JobSkill[]
+  matches      JobMatch[]
+  savedBy      SavedJob[]
+  applications Application[]
+
+  @@unique([externalId, source])
+  @@index([title, company])
+  @@index([postedAt])
+}
+
+model Skill {
+  id   String @id @default(uuid())
+  name String @unique
+  type String? // e.g., 'HARD', 'SOFT', 'TOOL'
+
+  jobSkills  JobSkill[]
+  userSkills UserSkill[]
+}
+
+model JobSkill {
+  jobId      String
+  job        Job     @relation(fields: [jobId], references: [id])
+  skillId    String
+  skill      Skill   @relation(fields: [skillId], references: [id])
+  isRequired Boolean @default(false)
+  weight     Float?
+
+  @@id([jobId, skillId])
+}
+
+model UserSkill {
+  userId      String
+  user        User    @relation(fields: [userId], references: [id])
+  skillId     String
+  skill       Skill   @relation(fields: [skillId], references: [id])
+  proficiency String? // e.g., 'BEGINNER', 'INTERMEDIATE', 'EXPERT'
+
+  @@id([userId, skillId])
+}
+
+model JobMatch {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  jobId       String
+  job         Job      @relation(fields: [jobId], references: [id])
+  matchScore  Float    // 0-100 deterministic score
+  explanation String?  // AI generated explanation
+  status      MatchStatus @default(RECOMMENDED)
+  createdAt   DateTime @default(now())
+
+  @@unique([userId, jobId])
+}
+
+enum MatchStatus {
+  RECOMMENDED
+  VIEWED
+  REJECTED
+}
+
+model SavedJob {
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  jobId     String
+  job       Job      @relation(fields: [jobId], references: [id])
+  createdAt DateTime @default(now())
+
+  @@id([userId, jobId])
+}
+
+model Application {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  jobId     String
+  job       Job      @relation(fields: [jobId], references: [id])
+  status    ApplicationStatus @default(APPLIED)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum ApplicationStatus {
+  APPLIED
+  INTERVIEWING
+  OFFERED
+  REJECTED
+}

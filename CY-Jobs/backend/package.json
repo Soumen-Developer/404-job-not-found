@@ -1,0 +1,59 @@
+{
+  "name": "@cy-jobs/backend",
+  "version": "1.0.0",
+  "private": true,
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only --project tsconfig.dev.json src/server.ts",
+    "build": "tsoa routes && tsoa swagger && tsc",
+    "start": "node dist/server.js",
+    "lint": "eslint src/**/*.ts",
+    "test": "jest",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev"
+  },
+  "dependencies": {
+    "@fastify/cookie": "^11.1.2",
+    "@fastify/cors": "^10.0.0",
+    "@fastify/express": "^4.0.7",
+    "@fastify/jwt": "^10.2.0",
+    "@fastify/swagger": "^9.0.0",
+    "@fastify/swagger-ui": "^5.0.0",
+    "@nestjs/axios": "^4.0.1",
+    "@nestjs/common": "^11.1.28",
+    "@nestjs/config": "^4.0.4",
+    "@prisma/client": "^5.10.0",
+    "@tsoa/runtime": "7.0.0-alpha.0",
+    "axios": "^1.18.1",
+    "bcryptjs": "^3.0.3",
+    "bullmq": "^5.80.9",
+    "cheerio": "^1.2.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.15.1",
+    "dotenv": "^16.4.5",
+    "express": "^5.2.1",
+    "fastify": "^5.10.0",
+    "ioredis": "^5.11.1",
+    "node-cron": "^4.6.0",
+    "rxjs": "^7.8.2",
+    "tsoa": "7.0.0-alpha.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^3.0.0",
+    "@types/express": "^5.0.6",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^20.11.0",
+    "@types/node-cron": "^3.0.11",
+    "eslint": "^9.19.0",
+    "jest": "^30.4.2",
+    "prisma": "^5.10.0",
+    "ts-jest": "^29.4.11",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.4.0",
+    "typescript-eslint": "^8.21.0"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  }
+}
