@@ -1,15 +1,15 @@
-# CY-Jobs - AI-Powered Career Operating System
+# 404 Job Not Found - AI-Powered Career Operating System
 
-CY-Jobs is an intelligent, AI-powered career intelligence platform designed to serve as the central hub for a candidate's professional journey—bridging the gap between academic education (complementing CareerYatraa) and career growth.
+**404 Job Not Found** (CY-Jobs) is an intelligent, AI-powered career intelligence platform designed to serve as the central hub for a candidate's professional journey—bridging the gap between academic education (complementing CareerYatraa) and career growth.
 
 ---
 
 ## 🏗️ Project Architecture
 
-CY-Jobs is structured as a **pnpm monorepo** containing separate workspaces for the frontend client, the backend API server, and shared package configurations.
+**404 Job Not Found** is structured as a **pnpm monorepo** containing separate workspaces for the frontend client, the backend API server, and shared package configurations.
 
 ```
-CY-Jobs/
+404-job-not-found/
 ├── .github/workflows/   # CI/CD pipelines (GitHub Actions)
 ├── backend/             # Fastify API, Prisma ORM, BullMQ background workers
 ├── frontend/            # Next.js App Router, Tailwind CSS v4, Lucide React
