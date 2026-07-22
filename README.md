@@ -136,5 +136,5 @@ Run checks across the monorepo:
 ---
 
 <div align="center">
-  <sub>Built by Soumen-Developer. Designed for modern candidate empowerment.</sub>
+  <sub>Built by Soumen. Designed for modern candidate empowerment.</sub>
 </div>
