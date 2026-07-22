@@ -32,25 +32,6 @@
 
 ---
 
-## 📸 Interface Preview
-
-<div align="center">
-  <table border="0">
-    <tr>
-      <td align="center" width="60%">
-        <b>Web Dashboard & Job Discovery Platform</b><br/><br/>
-        <img src="docs/web-ui.webp" alt="Web Interface Preview" width="100%" />
-      </td>
-      <td align="center" width="40%">
-        <b>Mobile Experience</b><br/><br/>
-        <img src="docs/mobile-ui.webp" alt="Mobile Interface Preview" width="100%" />
-      </td>
-    </tr>
-  </table>
-</div>
-
----
-
 ## 🏗️ Project Architecture
 
 **404 Job Not Found** is structured as an enterprise-grade **pnpm monorepo**:
