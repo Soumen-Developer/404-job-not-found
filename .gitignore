@@ -137,3 +137,7 @@ __pycache__/
 docker/postgres/data/
 docker/redis/data/
 docker/minio/data/
+
+# Subdirectory ignores
+CY-Jobs/
+
