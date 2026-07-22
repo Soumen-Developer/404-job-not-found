@@ -1,6 +1,6 @@
 <div align="center">
 
-  <h1>⚡ 404 Job Not Found</h1>
+  <h1>404 Job Not Found</h1>
   <p><b>AI-Powered Career Operating System & Intelligent Job Discovery Engine</b></p>
 
   <p>
@@ -21,42 +21,42 @@
 
 ---
 
-## 🌟 Key Features
+## Key Features
 
-- **🤖 Intelligent Job Matching:** Machine-learning recommendations tailored to candidate skills, target roles, and career trajectory.
-- **🌐 Multi-Provider Job Aggregation:** Integrated external job ingestion from **Adzuna**, **Arbeitnow**, **Greenhouse**, **Jobicy**, **Jooble**, **Lever**, **Remotive**, and **SerpAPI**.
-- **⚡ Asynchronous Queue Architecture:** Powered by **BullMQ** and **Redis** for scheduled background scraping, data cleaning, and automated indexing.
-- **📊 Candidate Dashboard & Tracking:** Real-time application pipelines, status tracking, saved jobs, and skill gap visualizers.
-- **🔒 Enterprise Security:** Modern JWT authentication, role-based access control (RBAC), and Fastify security middleware.
-- **🎨 Modern Responsive UI:** Next.js App Router UI with Tailwind CSS v4, Lucide React icons, dark/light aesthetics, and smooth animations.
+- **Intelligent Job Matching:** Machine-learning recommendations tailored to candidate skills, target roles, and career trajectory.
+- **Multi-Provider Job Aggregation:** Integrated external job ingestion from **Adzuna**, **Arbeitnow**, **Greenhouse**, **Jobicy**, **Jooble**, **Lever**, **Remotive**, and **SerpAPI**.
+- **Asynchronous Queue Architecture:** Powered by **BullMQ** and **Redis** for scheduled background scraping, data cleaning, and automated indexing.
+- **Candidate Dashboard & Tracking:** Real-time application pipelines, status tracking, saved jobs, and skill gap visualizers.
+- **Enterprise Security:** Modern JWT authentication, role-based access control (RBAC), and Fastify security middleware.
+- **Modern Responsive UI:** Next.js App Router UI with Tailwind CSS v4, Lucide React icons, dark/light aesthetics, and smooth animations.
 
 ---
 
-## 🏗️ Project Architecture
+## Project Architecture
 
 **404 Job Not Found** is structured as an enterprise-grade **pnpm monorepo**:
 
 ```
 404-job-not-found/
-├── 📁 .github/workflows/   # CI/CD pipelines (Linting, Typechecking, Build verification)
-├── 📁 backend/             # Fastify v5 API Server, Prisma ORM, BullMQ background workers
-│   ├── 📁 src/modules/auth/ # Authentication & user profile services
-│   ├── 📁 src/modules/jobs/ # Job scraping, matching engines & external providers
-│   ├── 📁 src/workers/      # Background queue workers (Adzuna, etc.)
-│   └── 📁 prisma/          # Database schema definitions & seed scripts
-├── 📁 frontend/            # Next.js 16 (App Router), React 19, Tailwind CSS v4 UI
-│   └── 📁 src/app/          # Next.js App Router pages & dashboards
-├── 📁 docker/              # Infrastructure orchestration (PostgreSQL, Redis, MinIO)
-├── 📁 docs/                # Architecture diagrams, blueprints, and UI assets
-├── 📁 packages/            # Shared TypeScript & ESLint configurations
-├── 📄 design.md            # Design system, color palettes & guidelines
-├── 📄 memory.md            # Active project state & tracking log
-└── 📄 rules.md             # Coding standards & developer instructions
+├── .github/workflows/   # CI/CD pipelines (Linting, Typechecking, Build verification)
+├── backend/             # Fastify v5 API Server, Prisma ORM, BullMQ background workers
+│   ├── src/modules/auth/ # Authentication & user profile services
+│   ├── src/modules/jobs/ # Job scraping, matching engines & external providers
+│   ├── src/workers/      # Background queue workers (Adzuna, etc.)
+│   └── prisma/          # Database schema definitions & seed scripts
+├── frontend/            # Next.js 16 (App Router), React 19, Tailwind CSS v4 UI
+│   └── src/app/          # Next.js App Router pages & dashboards
+├── docker/              # Infrastructure orchestration (PostgreSQL, Redis, MinIO)
+├── docs/                # Architecture diagrams, blueprints, and UI assets
+├── packages/            # Shared TypeScript & ESLint configurations
+├── design.md            # Design system, color palettes & guidelines
+├── memory.md            # Active project state & tracking log
+└── rules.md             # Coding standards & developer instructions
 ```
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 | Layer | Technology | Description |
 | :--- | :--- | :--- |
@@ -71,7 +71,7 @@
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Prerequisites
 Ensure you have the following installed on your machine:
@@ -116,13 +116,13 @@ Run frontend and backend services in parallel:
 pnpm run dev
 ```
 
-- 🌐 **Frontend Application:** [http://localhost:3000](http://localhost:3000)
-- ⚙️ **Backend API Engine:** [http://localhost:3001](http://localhost:3001)
-- 📜 **Interactive Swagger Docs:** [http://localhost:3001/docs](http://localhost:3001/docs)
+- **Frontend Application:** [http://localhost:3000](http://localhost:3000)
+- **Backend API Engine:** [http://localhost:3001](http://localhost:3001)
+- **Interactive Swagger Docs:** [http://localhost:3001/docs](http://localhost:3001/docs)
 
 ---
 
-## 🧹 Code Quality & Scripts
+## Code Quality & Scripts
 
 Run checks across the monorepo:
 
@@ -136,5 +136,5 @@ Run checks across the monorepo:
 ---
 
 <div align="center">
-  <sub>Built with ❤️ by Soumen-Developer. Designed for modern candidate empowerment.</sub>
+  <sub>Built by Soumen-Developer. Designed for modern candidate empowerment.</sub>
 </div>
